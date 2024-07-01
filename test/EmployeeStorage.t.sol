@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.23;
 
-import {Test, console2, stdError} from "forge-std/Test.sol";
+import {Test, console, stdError} from "forge-std/Test.sol";
 import {EmployeeStorage, TooManyShares} from "../src/EmployeeStorage.sol";
 
 contract TestEmployeeStorage is Test {
@@ -11,7 +11,7 @@ contract TestEmployeeStorage is Test {
         es = new EmployeeStorage();
     }
 
-    function test_employeeStorageConstructor() public {
+    function test_employeeStorage() public {
         assertEq(es.name, "Pat");
     }
 }
