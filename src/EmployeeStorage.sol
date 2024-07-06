@@ -24,17 +24,18 @@ contract EmployeeStorage {
         return shares;
     }
 
-    function grantShares(uint16 _newShares) public view returns (uint16) {
-        uint16 amount = shares + _newShares;
-        if (amount > 5000) {
-            revert TooManyShares(amount);
-        }
+    function grantShares(uint16 _newShares) public returns (uint16) {
+        uint16 newAmount = shares + _newShares;
 
         if (_newShares > 5000) {
             revert("Too many shares");
         }
 
-        return amount;
+        if (newAmount > 5000) {
+            revert TooManyShares(newAmount);
+        }
+        shares = newAmount;
+        return newAmount;
     }
 
     function checkForPacking(uint _slot) public view returns (uint r) {
